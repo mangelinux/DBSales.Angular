@@ -1,0 +1,90 @@
+<div class="card" style="width: 50%">
+  <h2 class="card-header">Sales Edit</h2>
+  <div class="card-body" >
+<span class="bagde badge-danger" *ngIf="submited && form.invalid">Los campos son obligatorios</span>
+
+      <form [formGroup]="form" (ngSubmit)="updateSales()">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="id"
+              placeholder="Id"
+              formControlName="id"
+            />
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              placeholder="Date"
+              formControlName="date"
+            />
+          </div>
+          <div class="form-group">
+                <label for="unitPrice">Unit Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="unitPrice"
+                  placeholder="Unit Price"
+                  formControlName="unitPrice"
+                />
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input
+              type="number"
+              class="form-control"
+              id="quantity"
+              placeholder="Quantity"
+              formControlName="quantity"
+            />
+            </div>
+            <div class="form-group">
+                <label for="totalPrice">Total Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="totalPrice"
+                  placeholder="Total Price"
+                  formControlName="totalPrice"
+                />
+            </div>
+            <div class="form-group">
+                <label for="customer">Customer</label>
+                <select class="form-control" id="customer" formControlName="customer_Id" >
+                  <option [ngValue]="null" disabled >-- SELECCIONE --</option>
+                  <option *ngFor="let item of customers" [value]="item.id" >{{item.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="employee">Employee</label>
+                <select class="form-control" id="employee" formControlName="employee_Id" >
+                    <option [ngValue]="null" disabled >-- SELECCIONE --</option>
+                    <option *ngFor="let item of employees" [value]="item.id" >{{item.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="product">Product</label>
+                <select class="form-control" id="product" formControlName="product_Id">
+                    <option [ngValue]="null" disabled >-- SELECCIONE --</option>
+                    <option *ngFor="let item of products" [value]="item.id" >{{item.name}}</option>
+                </select>
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Save</button>
+          &nbsp;
+          <button type="button" class="btn btn-secondary" [routerLink]="['/pages/saleslist']">Cancel</button>
+        </div>
+      </form>
+  </div>
+</div>

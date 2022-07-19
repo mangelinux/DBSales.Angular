@@ -1,0 +1,39 @@
+<div class="card" style="width: 50%">
+  <h2 class="card-header">Customer Create</h2>
+  <div class="card-body" >
+
+<span class="bagde badge-danger" *ngIf="submited && form.invalid">Los campos son obligatorios</span>
+      <form [formGroup]="form" (ngSubmit)="addCustomer()">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="id"
+              placeholder="Id"
+              formControlName="id"
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Name"
+              formControlName="name"
+            />
+          </div>
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Save</button>
+          &nbsp;
+          <button type="button" class="btn btn-secondary" [routerLink]="['/pages/customerlist']">Cancel</button>
+        </div>
+      </form>
+  </div>
+</div>
